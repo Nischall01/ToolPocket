@@ -42,7 +42,7 @@
             <Setter Property="HorizontalAlignment"
                     Value="Right" />
             <Setter Property="Width"
-                    Value="25" />
+                    Value="27" />
             <Setter Property="Height"
                     Value="35" />
             <Setter Property="Padding"
@@ -51,6 +51,8 @@
                     Value="Transparent" />
             <Setter Property="Margin"
                     Value="7" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
 
             <Style Selector="^Image">
                 <Setter Property="VerticalAlignment"
@@ -58,6 +60,24 @@
                 <Setter Property="HorizontalAlignment"
                         Value="Center" />
             </Style>
+        </Style>
+        <Style Selector="Border.OptionsContainer">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Padding"
+                    Value="8" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+        <Style Selector="Button.Options">
+            <Setter Property="Width"
+                    Value="150" />
         </Style>
         <Style Selector="Border.ToolImageContainer">
             <Setter Property="VerticalAlignment"
@@ -145,10 +165,16 @@
             </Grid>
         </Border>
         <Border Grid.Column="1"
-                Classes="Container"
-                Width="200"
-                Height="200">
-            <Image Source="{Binding ExtractedImage}" />
+                Classes="OptionsContainer">
+            <StackPanel>
+                <Button Content="Rename"
+                        Classes="Options"
+                        Command="{Binding RenameCommand}" />
+                <Button Content="Change Icon"
+                        Classes="Options" />
+                <Button Content="Delete"
+                        Classes="Options" />
+            </StackPanel>
         </Border>
     </Grid>
 </Window>
