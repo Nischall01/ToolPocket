@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ToolPocket.Options">
+
+    <UserControl.Styles>
+        <Style Selector="Border.Container">
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Padding"
+                    Value="5" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+    </UserControl.Styles>
+
+    <Border Classes="Container">
+        <StackPanel HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Width="170">
+            <Button Content="Rename"
+                    HorizontalAlignment="Stretch"
+                    Padding="5" />
+            <Button Content="Change Icon"
+                    HorizontalAlignment="Stretch"
+                    Padding="5" />
+            <Button Content="Delete"
+                    HorizontalAlignment="Stretch"
+                    Padding="5" />
+        </StackPanel>
+    </Border>
+</UserControl>

@@ -1,0 +1,155 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="400"
+             d:DesignHeight="400"
+             x:Class="ToolPocket.Tool">
+
+    <UserControl.Styles>
+        <Style Selector="Border.Container">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Padding"
+                    Value="10" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+            <Setter Property="Background"
+                    Value="white" />
+        </Style>
+        <Style Selector="Button.OptionButton">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Right" />
+            <Setter Property="Width"
+                    Value="27" />
+            <Setter Property="Height"
+                    Value="35" />
+            <Setter Property="Padding"
+                    Value="0" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="Margin"
+                    Value="7" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+
+            <Style Selector="^Image">
+                <Setter Property="VerticalAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Center" />
+            </Style>
+        </Style>
+        <Style Selector="Border.OptionsContainer">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Padding"
+                    Value="8" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+        <Style Selector="Button.Options">
+            <Setter Property="Width"
+                    Value="150" />
+        </Style>
+        <Style Selector="Border.ToolImageContainer">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="gray" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+        <Style Selector="Image.ToolImage">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style Selector="TextBlock.ToolName">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="10,10,10,5" />
+        </Style>
+        <Style Selector="Grid.StartUpGrid">
+            <Setter Property="Margin"
+                    Value="10,15,10,5" />
+        </Style>
+        <Style Selector="Button.RunButton">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="Padding"
+                    Value="10" />
+            <Setter Property="Width"
+                    Value="80" />
+            <Setter Property="Height"
+                    Value="40" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="FontSize"
+                    Value="13" />
+            <Setter Property="Background"
+                    Value="tan" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
+    </UserControl.Styles>
+
+    <Border Classes="Container">
+        <Grid RowDefinitions="*,*,*,*,*">
+            <Button Grid.Row="0"
+                    Classes="OptionButton"
+                    Click="OnButtonClick">
+                <Image Source="../Assets/three-dots.png" />
+            </Button>
+            <Border Grid.Row="1"
+                    Classes="ToolImageContainer">
+                <Image Source="../Assets/avalonia-logo.ico"
+                       Classes="ToolImage" />
+            </Border>
+            <TextBlock Grid.Row="2"
+                       Classes="ToolName"
+                       Text="Avalonia" />
+            <Grid Grid.Row="3"
+                  ColumnDefinitions="*,*"
+                  Classes="StartUpGrid">
+
+                <Label Grid.Column="0"
+                       Content="Run On StartUp :"
+                       Margin="10" />
+                <ToggleSwitch Grid.Column="1" />
+            </Grid>
+            <Button Grid.Row="4"
+                    Classes="RunButton"
+                    Content="Run" />
+        </Grid>
+    </Border>
+</UserControl>

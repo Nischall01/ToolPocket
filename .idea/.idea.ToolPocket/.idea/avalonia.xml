@@ -4,6 +4,11 @@
     <option name="projectPerEditor">
       <map>
         <entry key="App.axaml" value="ToolPocket.csproj" />
+        <entry key="Options.axaml" value="ToolPocket.csproj" />
+        <entry key="RenameDialog.axaml" value="ToolPocket.csproj" />
+        <entry key="RenameDialogBox.axaml" value="ToolPocket.csproj" />
+        <entry key="Tool.axaml" value="ToolPocket.csproj" />
+        <entry key="UserControl1.axaml" value="ToolPocket.csproj" />
         <entry key="Views/MainWindow.axaml" value="ToolPocket.csproj" />
       </map>
     </option>
