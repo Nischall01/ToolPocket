@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="400"
+             d:DesignHeight="400"
+             x:Class="ToolPocket.AddTool">
+
+    <UserControl.Styles>
+        <Style Selector="Border.Container">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
+            <Setter Property="Padding"
+                    Value="50" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+            <Setter Property="Background"
+                    Value="white" />
+        </Style>
+        <Style Selector="Border.ToolImageContainer">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="BorderBrush"
+                    Value="gray" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+            <Setter Property="Padding"
+                    Value="0" />
+        </Style>
+        <Style Selector="Image.ToolImage">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style Selector="Button.AddToolButton">
+            <Setter Property="Background"
+                    Value="Transparent" />
+        </Style>
+    </UserControl.Styles>
+
+    <Border Classes="Container">
+        <Grid>
+            <Border Classes="ToolImageContainer">
+                <Button Classes="AddToolButton"
+                        Click="Button_OnClick">
+                    <Image Source="../Assets/icons8-add-100.png"
+                           Classes="ToolImage" />
+                </Button>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

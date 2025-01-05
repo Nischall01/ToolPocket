@@ -126,8 +126,7 @@
     <Border Classes="Container">
         <Grid RowDefinitions="*,*,*,*,*">
             <Button Grid.Row="0"
-                    Classes="OptionButton"
-                    Click="OnButtonClick">
+                    Classes="OptionButton">
                 <Image Source="../Assets/three-dots.png" />
             </Button>
             <Border Grid.Row="1"
