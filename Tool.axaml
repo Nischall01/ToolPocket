@@ -87,13 +87,31 @@
             <Setter Property="HorizontalAlignment"
                     Value="Center" />
         </Style>
+        <Style Selector="Grid.ToolNameGrid">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="Margin"
+                    Value="0,10,0,5" />
+        </Style>
         <Style Selector="TextBlock.ToolName">
             <Setter Property="VerticalAlignment"
                     Value="Center" />
             <Setter Property="HorizontalAlignment"
                     Value="Center" />
             <Setter Property="Margin"
-                    Value="10,10,10,5" />
+                    Value="5,10,5,5" />
+        </Style>
+        <Style Selector="Button.ToolRenameButton">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="Padding"
+                    Value="0" />
         </Style>
         <Style Selector="Grid.StartUpGrid">
             <Setter Property="Margin"
@@ -134,9 +152,21 @@
                 <Image Source="../Assets/avalonia-logo.ico"
                        Classes="ToolImage" />
             </Border>
-            <TextBlock Grid.Row="2"
-                       Classes="ToolName"
-                       Text="Avalonia" />
+            <Grid Grid.Row="2"
+                  ColumnDefinitions="30,*,30"
+                  Classes="ToolNameGrid">
+                <TextBlock Grid.Column="1"
+                           Classes="ToolName"
+                           Text="Avalonia" />
+                <Button Grid.Column="2"
+                        Classes="ToolRenameButton">
+                    <Image VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Width="22"
+                           Height="22"
+                           Source="../Assets/4.png" />
+                </Button>
+            </Grid>
             <Grid Grid.Row="3"
                   ColumnDefinitions="*,*"
                   Classes="StartUpGrid">
