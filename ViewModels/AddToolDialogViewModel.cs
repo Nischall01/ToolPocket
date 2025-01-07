@@ -16,7 +16,7 @@ public partial class AddToolDialogViewModel : ViewModelBase
 
     [RelayCommand]
     [Obsolete("Obsolete")]
-    public async Task OpenFileBrowser()
+    private async Task OpenFileBrowser()
     {
         var openFileDialog = new OpenFileDialog
         {

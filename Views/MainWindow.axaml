@@ -3,7 +3,6 @@
         xmlns:vm="using:ToolPocket.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="clr-namespace:ToolPocket"
         mc:Ignorable="d"
         d:DesignWidth="700"
         d:DesignHeight="500"
@@ -21,15 +20,10 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <Grid ColumnDefinitions="*,*"
-          RowDefinitions="*,*">
-        <controls:Tool Grid.Row="0"
-                       Grid.Column="0" />
-        <controls:RenameDialog Grid.Row="0"
-                               Grid.Column="1" />
-        <controls:Options Grid.Row="1"
-                          Grid.Column="0" />
-        <controls:AddTool Grid.Row="1"
-                          Grid.Column="1" />
+    <Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="DynamicContainer" />
+        </ScrollViewer>
     </Grid>
 </Window>
