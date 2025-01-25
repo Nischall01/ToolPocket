@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        d:DesignWidth="700"
-        d:DesignHeight="500"
-        MinHeight="500"
+        d:DesignWidth="800"
+        d:DesignHeight="600"
         MinWidth="700"
-        Height="500"
-        Width="700"
+        MinHeight="500"
+        Width="800"
+        Height="600"
         x:Class="ToolPocket.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -20,10 +20,65 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="DynamicContainer" />
-        </ScrollViewer>
+    <Window.Resources>
+        <SolidColorBrush x:Key="SidebarBackground">#132A13</SolidColorBrush>
+        <SolidColorBrush x:Key="SidebarButtonBackground">#31572C</SolidColorBrush>
+    </Window.Resources>
+
+
+    <Window.Styles>
+        <Style Selector="Button.SidebarButton">
+            <Setter Property="Background"
+                    Value="{StaticResource SidebarButtonBackground}" />
+            <Setter Property="Width"
+                    Value="30" />
+            <Setter Property="Height"
+                    Value="30" />
+            <Setter Property="Margin"
+                    Value="5,12,5,5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black"
+                                      Opacity="6"
+                                      BlurRadius="6" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+        <Style Selector="Image.SidebarButtonIcon">
+            <Setter Property="Width"
+                    Value="23" />
+            <Setter Property="Height"
+                    Value="23" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+        </Style>
+    </Window.Styles>
+
+    <Grid Name="MainGrid"
+          ColumnDefinitions="*,50">
+        <Canvas Name="MainSection"
+                Grid.Column="0" />
+        <Grid Name="Sidebar"
+              Grid.Column="1"
+              Background="{StaticResource SidebarBackground}"
+              RowDefinitions="20,20">
+            <Button Grid.Row="0"
+                    Classes="SidebarButton"
+                    Margin="10,30, 10, 10">
+                <Image Classes="SidebarButtonIcon"
+                       Source="../Assets/settings-svgrepo-com.png" />
+            </Button>
+            <Button Grid.Row="1"
+                    Classes="SidebarButton">
+                <Image Classes="SidebarButtonIcon"
+                       Source="../Assets/question-mark-svgrepo-com.png" />
+            </Button>
+        </Grid>
     </Grid>
 </Window>

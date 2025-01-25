@@ -15,6 +15,7 @@
         <entry key="Views/AddTool.axaml" value="ToolPocket.csproj" />
         <entry key="Views/AddToolDialog.axaml" value="ToolPocket.csproj" />
         <entry key="Views/MainWindow.axaml" value="ToolPocket.csproj" />
+        <entry key="svg.axaml" value="ToolPocket.csproj" />
       </map>
     </option>
   </component>
