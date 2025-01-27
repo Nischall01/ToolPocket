@@ -19,6 +19,36 @@
             <Setter Property="CornerRadius"
                     Value="5" />
         </Style>
+        <Style Selector="Button">
+            <Setter Property="Background"
+                    Value="LightGray" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Gray"
+                                      Opacity="5"
+                                      BlurRadius="5" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+        <Style Selector="Button.ConfirmButton">
+            <Setter Property="Background"
+                    Value="#4F772D" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Gray"
+                                      Opacity="5"
+                                      BlurRadius="5" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
     </UserControl.Styles>
 
     <Border Classes="Container">
@@ -28,7 +58,8 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,5">
-                <Button Content="Confirm"
+                <Button Classes="ConfirmButton"
+                        Content="Confirm"
                         Margin="5" />
                 <Button Content="Cancel"
                         Margin="5" />

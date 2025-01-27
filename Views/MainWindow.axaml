@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        d:DesignWidth="800"
-        d:DesignHeight="600"
-        MinWidth="700"
+        d:DesignWidth="850"
+        d:DesignHeight="500"
+        MinWidth="750"
         MinHeight="500"
-        Width="800"
-        Height="600"
+        Width="850"
+        Height="500"
         x:Class="ToolPocket.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
@@ -20,16 +20,22 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
 
-    <Window.Resources>
-        <SolidColorBrush x:Key="SidebarBackground">#132A13</SolidColorBrush>
-        <SolidColorBrush x:Key="SidebarButtonBackground">#31572C</SolidColorBrush>
-    </Window.Resources>
 
+    <Window.Resources>
+        <SolidColorBrush x:Key="SidebarBgColor"
+                         Color="#FF132A13" />
+        <SolidColorBrush x:Key="SidebarButtonBgColor"
+                         Color="#FF31572C" />
+        <SolidColorBrush x:Key="MainSectionBgColor"
+                         Color="#efefef" />
+        <SolidColorBrush x:Key="VeryLightGray"
+                         Color="#f7f7f8" />
+    </Window.Resources>
 
     <Window.Styles>
         <Style Selector="Button.SidebarButton">
             <Setter Property="Background"
-                    Value="{StaticResource SidebarButtonBackground}" />
+                    Value="{StaticResource SidebarButtonBgColor}" />
             <Setter Property="Width"
                     Value="30" />
             <Setter Property="Height"
@@ -47,6 +53,8 @@
                     Value="Center" />
             <Setter Property="VerticalAlignment"
                     Value="Center" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
         </Style>
         <Style Selector="Image.SidebarButtonIcon">
             <Setter Property="Width"
@@ -60,21 +68,66 @@
         </Style>
     </Window.Styles>
 
-    <Grid Name="MainGrid"
+    <Grid Name="MainWindowGrid"
           ColumnDefinitions="*,50">
-        <Canvas Name="MainSection"
-                Grid.Column="0" />
-        <Grid Name="Sidebar"
+        <Grid Name="MainSectionGrid"
+              Grid.Column="0"
+              Background="{StaticResource MainSectionBgColor}">
+            <Grid RowDefinitions="52,*">
+                <Grid Name="TopBarGrid"
+                      Grid.Row="0"
+                      Background="White"
+                      ColumnDefinitions="150,*">
+                    <TextBlock Name="AppNameTextBlock"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               Text="ToolPocket"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               Margin="10,0,0,0" />
+                    <Grid Name="ToolSearchGrid"
+                          Grid.Column="1"
+                          ColumnDefinitions="*,30"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right">
+                        <TextBox Name="SearchBar"
+                                 Grid.Column="0"
+                                 Width="220"
+                                 CornerRadius="10"
+                                 Background="{StaticResource VeryLightGray}"
+                                 Watermark="Search..." />
+                        <!--
+                        <Button Name="SearchButton"
+                                Grid.Column="1"
+                                CornerRadius="5"
+                                Height="32"
+                                Width="32"
+                                Background="Transparent">
+                            ~1~ Background="{StaticResource SidebarButtonBgColor}"> @1@
+                            <Image Name="SearchButtonIcon"
+                                   Source="../Assets/search-alt-2-svgrepo-com (1).png"
+                                   Width="18"
+                                   Height="18" />
+                        </Button>
+                    -->
+                    </Grid>
+                </Grid>
+                <Border Grid.Row="1" />
+            </Grid>
+        </Grid>
+        <Grid Name="SidebarGrid"
               Grid.Column="1"
-              Background="{StaticResource SidebarBackground}"
+              Background="{StaticResource SidebarBgColor}"
               RowDefinitions="20,20">
-            <Button Grid.Row="0"
+            <Button Name="SettingsButton"
+                    Grid.Row="0"
                     Classes="SidebarButton"
                     Margin="10,30, 10, 10">
                 <Image Classes="SidebarButtonIcon"
                        Source="../Assets/settings-svgrepo-com.png" />
             </Button>
-            <Button Grid.Row="1"
+            <Button Name="HelpButton"
+                    Grid.Row="1"
                     Classes="SidebarButton">
                 <Image Classes="SidebarButtonIcon"
                        Source="../Assets/question-mark-svgrepo-com.png" />

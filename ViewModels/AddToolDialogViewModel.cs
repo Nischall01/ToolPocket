@@ -1,14 +1,8 @@
-using System;
-using System.Threading.Tasks;
-using Avalonia.Controls;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using ToolPocket.Views;
-
 namespace ToolPocket.ViewModels;
 
-public partial class AddToolDialogViewModel : ViewModelBase
+public class AddToolDialogViewModel : ViewModelBase
 {
+    /*
     private Window? _addToolDialog;
 
     [ObservableProperty]
@@ -35,4 +29,5 @@ public partial class AddToolDialogViewModel : ViewModelBase
 
         ExePath = result?.Length > 0 ? result[0] : string.Empty;
     }
+*/
 }

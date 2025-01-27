@@ -34,23 +34,55 @@
             <Setter Property="Margin"
                     Value="5" />
         </Style>
+        <Style Selector="Button">
+            <Setter Property="Background"
+                    Value="LightGray" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Gray"
+                                      Opacity="5"
+                                      BlurRadius="5" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+        <Style Selector="Button.AddButton">
+            <Setter Property="Background"
+                    Value="#4F772D" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Gray"
+                                      Opacity="5"
+                                      BlurRadius="5" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+
     </Window.Styles>
 
     <Grid RowDefinitions="*,*">
         <StackPanel Grid.Row="0"
                     Margin="20">
             <Label>Enter the app's executable path(.exe) :</Label>
-            <Grid ColumnDefinitions="*,30">
+            <Grid ColumnDefinitions="*,32">
                 <TextBox Grid.Column="0"
-                         Margin="0,0,8,0"
-                         Text="{Binding ExePath, Mode=TwoWay}" />
-                <Button Grid.Column="1"
-                        Width="32"
+                         Margin="0,0,8,0" />
+                <Button Name="DirectoryButton"
+                        Grid.Column="1"
+                        Margin="0"
+                        Width="36"
                         Height="32"
-                        Background="LightGray"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
-                        Command="{Binding OpenFileBrowserCommand}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"
                         IsEnabled="True">
                     <Image Source="../Assets/icons8-opened-folder-50.png"
                            Height="20"
@@ -86,7 +118,8 @@
         <Grid Grid.Row="1"
               ColumnDefinitions="*,*"
               Classes="InnerGrid">
-            <Button Grid.Column="0"
+            <Button Classes="AddButton"
+                    Grid.Column="0"
                     Content="Add"
                     Margin="20"
                     Width="80"

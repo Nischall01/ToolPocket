@@ -25,6 +25,13 @@
                     Value="5" />
             <Setter Property="Background"
                     Value="white" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Gray"
+                                      Opacity="5"
+                                      BlurRadius="5" />
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style Selector="Button.OptionButton">
             <Setter Property="VerticalAlignment"
@@ -50,24 +57,6 @@
                 <Setter Property="HorizontalAlignment"
                         Value="Center" />
             </Style>
-        </Style>
-        <Style Selector="Border.OptionsContainer">
-            <Setter Property="HorizontalAlignment"
-                    Value="Center" />
-            <Setter Property="VerticalAlignment"
-                    Value="Center" />
-            <Setter Property="BorderBrush"
-                    Value="Black" />
-            <Setter Property="BorderThickness"
-                    Value="1" />
-            <Setter Property="Padding"
-                    Value="8" />
-            <Setter Property="CornerRadius"
-                    Value="5" />
-        </Style>
-        <Style Selector="Button.Options">
-            <Setter Property="Width"
-                    Value="150" />
         </Style>
         <Style Selector="Border.ToolImageContainer">
             <Setter Property="VerticalAlignment"
@@ -112,12 +101,16 @@
                     Value="Transparent" />
             <Setter Property="Padding"
                     Value="0" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
         </Style>
         <Style Selector="Grid.StartUpGrid">
             <Setter Property="Margin"
                     Value="10,15,10,5" />
         </Style>
         <Style Selector="Button.RunButton">
+            <Setter Property="Background"
+                    Value="#4F772D" />
             <Setter Property="VerticalAlignment"
                     Value="Center" />
             <Setter Property="HorizontalAlignment"
@@ -133,10 +126,19 @@
             <Setter Property="VerticalContentAlignment"
                     Value="Center" />
             <Setter Property="FontSize"
-                    Value="13" />
-            <Setter Property="Background"
-                    Value="tan" />
+                    Value="14" />
+            <Setter Property="FontWeight"
+                    Value="Medium" />
             <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Gray"
+                                      Opacity="5"
+                                      BlurRadius="5" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius"
                     Value="5" />
         </Style>
     </UserControl.Styles>
