@@ -28,6 +28,21 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Models\"/>
+        <Compile Update="UserControls\RenameDialog.axaml.cs">
+            <DependentUpon>RenameDialog.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="UserControls\AddTool.axaml.cs">
+            <DependentUpon>AddTool.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="UserControls\ToolBox.axaml.cs">
+            <DependentUpon>ToolBox.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
     </ItemGroup>
 </Project>

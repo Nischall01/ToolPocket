@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="ToolPocket.RenameDialog">
+             x:Class="ToolPocket.Components.RenameDialog">
     <UserControl.Styles>
         <Style Selector="Border.Container">
             <Setter Property="VerticalAlignment"
@@ -60,6 +60,7 @@
                         Margin="0,0,0,5">
                 <Button Classes="ConfirmButton"
                         Content="Confirm"
+                        Foreground="#ffffff"
                         Margin="5" />
                 <Button Content="Cancel"
                         Margin="5" />

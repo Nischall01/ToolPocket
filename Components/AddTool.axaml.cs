@@ -2,7 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using ToolPocket.Views;
 
-namespace ToolPocket;
+namespace ToolPocket.Components;
 
 public partial class AddTool : UserControl
 {

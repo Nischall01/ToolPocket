@@ -5,7 +5,7 @@
              mc:Ignorable="d"
              d:DesignWidth="400"
              d:DesignHeight="400"
-             x:Class="ToolPocket.Tool">
+             x:Class="ToolPocket.Components.ToolBox">
 
     <UserControl.Styles>
         <Style Selector="Border.Container">
@@ -111,6 +111,8 @@
         <Style Selector="Button.RunButton">
             <Setter Property="Background"
                     Value="#4F772D" />
+            <Setter Property="Foreground"
+                    Value="#ffffff" />
             <Setter Property="VerticalAlignment"
                     Value="Center" />
             <Setter Property="HorizontalAlignment"
@@ -175,7 +177,13 @@
 
                 <Label Grid.Column="0"
                        Content="Run On StartUp :"
-                       Margin="10" />
+                       Margin="10">
+                    <ToolTip.Tip>
+                        <ToolTip CornerRadius="0">
+                            Run On StartUp
+                        </ToolTip>
+                    </ToolTip.Tip>
+                </Label>
                 <ToggleSwitch Grid.Column="1" />
             </Grid>
             <Button Grid.Row="4"

@@ -6,15 +6,23 @@
         <entry key="AddTool.axaml" value="ToolPocket.csproj" />
         <entry key="App.axaml" value="ToolPocket.csproj" />
         <entry key="Assets/AddTool.axaml" value="ToolPocket.csproj" />
+        <entry key="Components/AddTool.axaml" value="ToolPocket.csproj" />
+        <entry key="Components/TemplatedControl1.axaml" value="ToolPocket.csproj" />
+        <entry key="Components/ToolBox.axaml" value="ToolPocket.csproj" />
         <entry key="Options.axaml" value="ToolPocket.csproj" />
         <entry key="RenameDialog.axaml" value="ToolPocket.csproj" />
         <entry key="RenameDialogBox.axaml" value="ToolPocket.csproj" />
         <entry key="Tool.axaml" value="ToolPocket.csproj" />
+        <entry key="ToolBox.axaml" value="ToolPocket.csproj" />
         <entry key="UserControl1.axaml" value="ToolPocket.csproj" />
+        <entry key="UserControls/AddTool.axaml" value="ToolPocket.csproj" />
+        <entry key="UserControls/RenameDialog.axaml" value="ToolPocket.csproj" />
         <entry key="Views/AddATool.axaml" value="ToolPocket.csproj" />
         <entry key="Views/AddTool.axaml" value="ToolPocket.csproj" />
         <entry key="Views/AddToolDialog.axaml" value="ToolPocket.csproj" />
         <entry key="Views/MainWindow.axaml" value="ToolPocket.csproj" />
+        <entry key="Views/RenameDialog.axaml" value="ToolPocket.csproj" />
+        <entry key="Views/Tool.axaml" value="ToolPocket.csproj" />
         <entry key="svg.axaml" value="ToolPocket.csproj" />
       </map>
     </option>

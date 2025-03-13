@@ -3,6 +3,7 @@
         xmlns:vm="using:ToolPocket.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToolPocket.Components"
         mc:Ignorable="d"
         d:DesignWidth="850"
         d:DesignHeight="500"
@@ -22,10 +23,10 @@
 
 
     <Window.Resources>
-        <SolidColorBrush x:Key="SidebarBgColor"
-                         Color="#FF132A13" />
         <SolidColorBrush x:Key="SidebarButtonBgColor"
                          Color="#FF31572C" />
+        <SolidColorBrush x:Key="TopBarBgColor"
+                         Color="#ffffff" />
         <SolidColorBrush x:Key="MainSectionBgColor"
                          Color="#efefef" />
         <SolidColorBrush x:Key="VeryLightGray"
@@ -33,7 +34,11 @@
     </Window.Resources>
 
     <Window.Styles>
-        <Style Selector="Button.SidebarButton">
+        <!--<Style Selector="Grid">
+            <Setter Property="ShowGridLines"
+                    Value="False" />
+        </Style>-->
+        <Style Selector="Button.TopBarButton">
             <Setter Property="Background"
                     Value="{StaticResource SidebarButtonBgColor}" />
             <Setter Property="Width"
@@ -41,7 +46,7 @@
             <Setter Property="Height"
                     Value="30" />
             <Setter Property="Margin"
-                    Value="5,12,5,5" />
+                    Value="0,0,5,0" />
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect Color="Black"
@@ -56,7 +61,7 @@
             <Setter Property="CornerRadius"
                     Value="5" />
         </Style>
-        <Style Selector="Image.SidebarButtonIcon">
+        <Style Selector="Image.TopBarButtonIcon">
             <Setter Property="Width"
                     Value="23" />
             <Setter Property="Height"
@@ -68,70 +73,65 @@
         </Style>
     </Window.Styles>
 
-    <Grid Name="MainWindowGrid"
-          ColumnDefinitions="*,50">
-        <Grid Name="MainSectionGrid"
+    <Grid Name="MainSectionGrid"
+          Background="{StaticResource MainSectionBgColor}">
+        <Grid Name="MainBody"
               Grid.Column="0"
-              Background="{StaticResource MainSectionBgColor}">
-            <Grid RowDefinitions="52,*">
-                <Grid Name="TopBarGrid"
-                      Grid.Row="0"
-                      Background="White"
-                      ColumnDefinitions="150,*">
-                    <TextBlock Name="AppNameTextBlock"
-                               Grid.Column="0"
-                               VerticalAlignment="Center"
-                               Text="ToolPocket"
-                               FontSize="22"
-                               FontWeight="Bold"
-                               Margin="10,0,0,0" />
-                    <Grid Name="ToolSearchGrid"
-                          Grid.Column="1"
-                          ColumnDefinitions="*,30"
-                          VerticalAlignment="Center"
-                          HorizontalAlignment="Right">
-                        <TextBox Name="SearchBar"
-                                 Grid.Column="0"
-                                 Width="220"
-                                 CornerRadius="10"
-                                 Background="{StaticResource VeryLightGray}"
-                                 Watermark="Search..." />
-                        <!--
-                        <Button Name="SearchButton"
-                                Grid.Column="1"
-                                CornerRadius="5"
-                                Height="32"
-                                Width="32"
-                                Background="Transparent">
-                            ~1~ Background="{StaticResource SidebarButtonBgColor}"> @1@
-                            <Image Name="SearchButtonIcon"
-                                   Source="../Assets/search-alt-2-svgrepo-com (1).png"
-                                   Width="18"
-                                   Height="18" />
-                        </Button>
-                    -->
-                    </Grid>
-                </Grid>
-                <Border Grid.Row="1" />
+              RowDefinitions="52,*">
+            <Grid Name="TopBarGrid"
+                  Grid.Row="0"
+                  Background="{StaticResource TopBarBgColor}">
+                <TextBox Name="SearchBar"
+                         Width="230"
+                         Margin="50,0,0,0"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
+                         CornerRadius="10"
+                         Background="{StaticResource VeryLightGray}"
+                         Watermark="Search..." />
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Margin="0,0, 10,0">
+                    <Button Name="SettingsButton"
+                            Classes="TopBarButton">
+                        <ToolTip.Tip>
+                            <ToolTip CornerRadius="0">
+                                Settings
+                            </ToolTip>
+                        </ToolTip.Tip>
+                        <Image Classes="TopBarButtonIcon"
+                               Source="../Assets/settings-svgrepo-com.png" />
+                    </Button>
+                    <!--
+                    <Button Name="HelpButton"
+                            Classes="TopBarButton"
+                            Margin="5,0,10,0">
+                        <ToolTip.Tip>
+                            <ToolTip CornerRadius="0">
+                                Help
+                            </ToolTip>
+                        </ToolTip.Tip>
+                        <Image Classes="SidebarButtonIcon"
+                               Source="../Assets/question-mark-svgrepo-com.png" />
+                    </Button>
+                -->
+                </StackPanel>
             </Grid>
-        </Grid>
-        <Grid Name="SidebarGrid"
-              Grid.Column="1"
-              Background="{StaticResource SidebarBgColor}"
-              RowDefinitions="20,20">
-            <Button Name="SettingsButton"
-                    Grid.Row="0"
-                    Classes="SidebarButton"
-                    Margin="10,30, 10, 10">
-                <Image Classes="SidebarButtonIcon"
-                       Source="../Assets/settings-svgrepo-com.png" />
-            </Button>
-            <Button Name="HelpButton"
-                    Grid.Row="1"
-                    Classes="SidebarButton">
-                <Image Classes="SidebarButtonIcon"
-                       Source="../Assets/question-mark-svgrepo-com.png" />
-            </Button>
+            <ScrollViewer Grid.Row="1"
+                          VerticalScrollBarVisibility="Auto"
+                          Padding="0">
+                <UniformGrid Columns="4"
+                             Margin="10,0">
+                    <local:ToolBox Height="500" />
+                    <local:ToolBox Height="500" />
+                    <local:ToolBox Height="500" />
+                    <local:ToolBox Height="500" />
+                    <local:ToolBox Height="500" />
+                    <local:ToolBox Height="500" />
+                    <local:AddTool />
+                </UniformGrid>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>
