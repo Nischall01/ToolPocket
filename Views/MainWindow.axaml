@@ -1,9 +1,8 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:ToolPocket.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ToolPocket.Components"
+        xmlns:views="clr-namespace:ToolPocket.Views"
         mc:Ignorable="d"
         d:DesignWidth="850"
         d:DesignHeight="500"
@@ -12,126 +11,9 @@
         Width="850"
         Height="500"
         x:Class="ToolPocket.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/ToolPocketLogo2.ico"
         WindowStartupLocation="CenterScreen"
         Title="ToolPocket">
 
-    <Design.DataContext>
-        <vm:MainWindowViewModel />
-    </Design.DataContext>
-
-
-    <Window.Resources>
-        <SolidColorBrush x:Key="SidebarButtonBgColor"
-                         Color="#FF31572C" />
-        <SolidColorBrush x:Key="TopBarBgColor"
-                         Color="#ffffff" />
-        <SolidColorBrush x:Key="MainSectionBgColor"
-                         Color="#efefef" />
-        <SolidColorBrush x:Key="VeryLightGray"
-                         Color="#f7f7f8" />
-    </Window.Resources>
-
-    <Window.Styles>
-        <!--<Style Selector="Grid">
-            <Setter Property="ShowGridLines"
-                    Value="False" />
-        </Style>-->
-        <Style Selector="Button.TopBarButton">
-            <Setter Property="Background"
-                    Value="{StaticResource SidebarButtonBgColor}" />
-            <Setter Property="Width"
-                    Value="30" />
-            <Setter Property="Height"
-                    Value="30" />
-            <Setter Property="Margin"
-                    Value="0,0,5,0" />
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect Color="Black"
-                                      Opacity="6"
-                                      BlurRadius="6" />
-                </Setter.Value>
-            </Setter>
-            <Setter Property="HorizontalAlignment"
-                    Value="Center" />
-            <Setter Property="VerticalAlignment"
-                    Value="Center" />
-            <Setter Property="CornerRadius"
-                    Value="5" />
-        </Style>
-        <Style Selector="Image.TopBarButtonIcon">
-            <Setter Property="Width"
-                    Value="23" />
-            <Setter Property="Height"
-                    Value="23" />
-            <Setter Property="HorizontalAlignment"
-                    Value="Center" />
-            <Setter Property="VerticalAlignment"
-                    Value="Center" />
-        </Style>
-    </Window.Styles>
-
-    <Grid Name="MainSectionGrid"
-          Background="{StaticResource MainSectionBgColor}">
-        <Grid Name="MainBody"
-              Grid.Column="0"
-              RowDefinitions="52,*">
-            <Grid Name="TopBarGrid"
-                  Grid.Row="0"
-                  Background="{StaticResource TopBarBgColor}">
-                <TextBox Name="SearchBar"
-                         Width="230"
-                         Margin="50,0,0,0"
-                         VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         CornerRadius="10"
-                         Background="{StaticResource VeryLightGray}"
-                         Watermark="Search..." />
-                <StackPanel Orientation="Horizontal"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Right"
-                            Margin="0,0, 10,0">
-                    <Button Name="SettingsButton"
-                            Classes="TopBarButton">
-                        <ToolTip.Tip>
-                            <ToolTip CornerRadius="0">
-                                Settings
-                            </ToolTip>
-                        </ToolTip.Tip>
-                        <Image Classes="TopBarButtonIcon"
-                               Source="../Assets/settings-svgrepo-com.png" />
-                    </Button>
-                    <!--
-                    <Button Name="HelpButton"
-                            Classes="TopBarButton"
-                            Margin="5,0,10,0">
-                        <ToolTip.Tip>
-                            <ToolTip CornerRadius="0">
-                                Help
-                            </ToolTip>
-                        </ToolTip.Tip>
-                        <Image Classes="SidebarButtonIcon"
-                               Source="../Assets/question-mark-svgrepo-com.png" />
-                    </Button>
-                -->
-                </StackPanel>
-            </Grid>
-            <ScrollViewer Grid.Row="1"
-                          VerticalScrollBarVisibility="Auto"
-                          Padding="0">
-                <UniformGrid Columns="4"
-                             Margin="10,0">
-                    <local:ToolBox Height="500" />
-                    <local:ToolBox Height="500" />
-                    <local:ToolBox Height="500" />
-                    <local:ToolBox Height="500" />
-                    <local:ToolBox Height="500" />
-                    <local:ToolBox Height="500" />
-                    <local:AddTool />
-                </UniformGrid>
-            </ScrollViewer>
-        </Grid>
-    </Grid>
+    <views:MainView />
 </Window>

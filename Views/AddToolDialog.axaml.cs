@@ -1,55 +1,62 @@
 using System;
-using System.IO;
+using System.Linq;
+using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
+using Avalonia.VisualTree;
+using ToolPocket.ViewModels;
 
 namespace ToolPocket.Views;
 
 public partial class AddToolDialog : Window
 {
+    private readonly ItemsControl? _itemsControl;
+    private readonly ScrollViewer? _scrollViewer;
+
     public AddToolDialog()
     {
         InitializeComponent();
+        DataContext = new AddToolDialogViewModel();
+
+        // Find controls
+        _scrollViewer = this.FindControl<ScrollViewer>("NewAppsScrollViewer");
+        _itemsControl = this.FindControl<ItemsControl>("NewAppsList");
+
+        // Initial margin setup
+        UpdateItemMargins();
+
+        // Subscribe to SizeChanged to update margin dynamically
+        if (_scrollViewer != null)
+            _scrollViewer.SizeChanged += (_, _) => UpdateItemMargins();
+
+        // Also handle items changing
+        if (_itemsControl is not null)
+            _itemsControl.LayoutUpdated += (_, _) => UpdateItemMargins();
     }
 
-    [Obsolete("Obsolete")]
-    private async void DirectoryButton_OnClick(object? sender, RoutedEventArgs e)
+    protected override void OnDataContextChanged(EventArgs e)
     {
-        string? filePath = await FilePickerHelper.ShowFilePicker(this, AppPath.Text);
-        AppPath.Text = filePath;
-        if (filePath != null) AppName.Text = GetAppNameFromPath(filePath);
+        base.OnDataContextChanged(e);
+
+        if (DataContext is AddToolDialogViewModel vm) vm.RequestClose = Close;
     }
 
-    private void AddToolCancelButton_OnClick(object? sender, RoutedEventArgs e)
+    private void UpdateItemMargins()
     {
-        Close();
-    }
+        if (_scrollViewer == null || _itemsControl == null)
+            return;
 
-    private void AddToolConfirmButton_OnClick(object? sender, RoutedEventArgs e)
-    {
-        AddNewTool();
-    }
+        var scrollbarVisible = _scrollViewer.Extent.Height > _scrollViewer.Viewport.Height;
 
-    private void AddNewTool()
-    {
-        Console.WriteLine();
-        Console.WriteLine($"App path: {AppPath.Text}");
-        Console.WriteLine($"App Name: {AppName.Text}");
-        Console.WriteLine($"Run On StartUp: {RunOnStartUpToggle.IsChecked}");
-        Console.WriteLine($"Add to Start Menu: {AddToStartMenuToggle.IsChecked}");
-        Console.WriteLine($"Add to Programs: {AddToProgramsToggle.IsChecked}");
-    }
+        for (var i = 0; i < _itemsControl.ItemCount; i++)
+        {
+            var container = _itemsControl.ContainerFromIndex(i);
 
-    private string GetAppNameFromPath(string filePath)
-    {
-        string fileName = Path.GetFileName(filePath);
-
-        const char dotSeparator = '.';
-
-        int dotSeparatorIndex = fileName.IndexOf(dotSeparator);
-
-        if (dotSeparatorIndex != -1) fileName = fileName.Substring(0, dotSeparatorIndex);
-
-        return fileName;
+            // Traverse the visual tree to find the Border in the DataTemplate
+            var border = container?.GetVisualDescendants().OfType<Border>().FirstOrDefault();
+            if (border != null)
+                border.Margin = scrollbarVisible
+                    ? new Thickness(4, 4, 12, 4)
+                    : new Thickness(4);
+        }
     }
 }

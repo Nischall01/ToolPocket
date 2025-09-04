@@ -3,11 +3,11 @@ using ToolPocket.ViewModels;
 
 namespace ToolPocket.Views;
 
-public partial class MainWindow : Window
+public partial class MainView : UserControl
 {
-    public MainWindow()
+    public MainView()
     {
         InitializeComponent();
-        DataContext = new MainWindowViewModel();
+        DataContext = new MainViewViewModel();
     }
 }

@@ -20,6 +20,7 @@
         <entry key="Views/AddATool.axaml" value="ToolPocket.csproj" />
         <entry key="Views/AddTool.axaml" value="ToolPocket.csproj" />
         <entry key="Views/AddToolDialog.axaml" value="ToolPocket.csproj" />
+        <entry key="Views/MainView.axaml" value="ToolPocket.csproj" />
         <entry key="Views/MainWindow.axaml" value="ToolPocket.csproj" />
         <entry key="Views/RenameDialog.axaml" value="ToolPocket.csproj" />
         <entry key="Views/Tool.axaml" value="ToolPocket.csproj" />

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="App.axaml" value="ToolPocket.csproj" />
+        <entry key="Components/AddTool.axaml" value="ToolPocket.csproj" />
+        <entry key="Components/RenameDialog.axaml" value="ToolPocket.csproj" />
+        <entry key="Components/ToolBox.axaml" value="ToolPocket.csproj" />
+        <entry key="Views/AddToolDialog.axaml" value="ToolPocket.csproj" />
+        <entry key="Views/MainView.axaml" value="ToolPocket.csproj" />
+        <entry key="Views/MainWindow.axaml" value="ToolPocket.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
