@@ -105,11 +105,43 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <ScrollViewer Grid.Row="1"
-                          VerticalScrollBarVisibility="Auto"
-                          Padding="0">
-                <UniformGrid Columns="4"
-                             Margin="10,0" />
+
+            <ScrollViewer
+                Grid.Row="1"
+                Name="AppsScrollViewer">
+                <ItemsControl
+                    x:Name="AppsList"
+                    ItemsSource="{Binding Apps}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                Margin="5"
+                                Padding="10"
+                                CornerRadius="5"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                Background="#FF2A2A2A">
+
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <!-- App info -->
+                                    <StackPanel Grid.Column="0" Orientation="Vertical">
+                                        <TextBlock Text="{Binding AppName}"
+                                                   FontWeight="Bold"
+                                                   Foreground="White" />
+                                        <TextBlock Text="{Binding AppPath}"
+                                                   FontSize="12"
+                                                   Foreground="LightGray" />
+                                    </StackPanel>
+
+                                    <!-- Run button -->
+                                    <Button
+                                        Grid.Column="1" Content="Run"
+                                        Margin="5,0,0,0" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </ScrollViewer>
         </Grid>
     </Grid>

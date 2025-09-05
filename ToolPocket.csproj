@@ -48,8 +48,4 @@
         <UpToDateCheckInput Remove="Components\RenameDialog.axaml"/>
         <UpToDateCheckInput Remove="Components\ToolBox.axaml"/>
     </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Interfaces\"/>
-    </ItemGroup>
 </Project>

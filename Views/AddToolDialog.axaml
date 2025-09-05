@@ -11,9 +11,9 @@
         Height="400"
         x:Class="ToolPocket.Views.AddToolDialog"
         x:DataType="vm:AddToolDialogViewModel"
-        x:Name="RootWindow"
         ShowInTaskbar="False"
         WindowStartupLocation="CenterScreen"
+        Icon="/Assets/ToolPocketLogo2.ico"
         Title="Add a Tool">
 
     <!--
@@ -122,7 +122,7 @@
                              Grid.Column="0"
                              Margin="0,0,8,0"
                              FontSize="17"
-                             Text="{Binding AppPath, Mode=OneWayToSource}" />
+                             Text="{Binding AppPath, Mode=TwoWay}" />
                     <Button Name="DirectoryButton"
                             Grid.Column="1"
                             Margin="0,0,0,4"
@@ -132,6 +132,8 @@
                             HorizontalAlignment="Center"
                             VerticalContentAlignment="Center"
                             HorizontalContentAlignment="Center"
+                            Command="{Binding OpenFilePicker}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                             IsEnabled="True">
                         <Image Source="../Assets/icons8-opened-folder-50.png"
                                Height="20"
@@ -143,7 +145,7 @@
                 <Label>Enter the app's name :</Label>
                 <TextBox Name="AppName"
                          FontSize="17"
-                         Text="{Binding AppName, Mode=OneWayToSource}" />
+                         Text="{Binding AppName, Mode=TwoWay}" />
                 <Grid ColumnDefinitions="*,*"
                       Classes="InnerGrid">
                     <Label Grid.Column="0"
@@ -160,7 +162,7 @@
                     <ToggleSwitch Name="AddToProgramsToggle"
                                   Grid.Column="1"
                                   HorizontalAlignment="Right"
-                                  IsChecked="{Binding AddToPrograms, Mode= TwoWay}" />
+                                  IsChecked="{Binding AddToPrograms, Mode=TwoWay}" />
                 </Grid>
                 <Grid ColumnDefinitions="*,*"
                       Classes="InnerGrid">
@@ -169,7 +171,7 @@
                     <ToggleSwitch Name="AddToStartToggle"
                                   Grid.Column="1"
                                   HorizontalAlignment="Right"
-                                  IsChecked="{Binding AddToStart, Mode= TwoWay}" />
+                                  IsChecked="{Binding AddToStart, Mode=TwoWay}" />
                 </Grid>
             </StackPanel>
             <Grid Grid.Row="1"
@@ -244,14 +246,14 @@
                                             ToolTip.Tip="Add to Programs"
                                             ToolTip.ShowDelay="0"
                                             Grid.Column="1"
-                                            Text="{Binding RunOnStartUp, Converter={StaticResource BoolToYesNoConverter}, StringFormat='AOP: {0}'}" />
+                                            Text="{Binding AddToPrograms, Converter={StaticResource BoolToYesNoConverter}, StringFormat='AOP: {0}'}" />
                                         <TextBlock
                                             Name="AddToStartTag"
                                             Classes="AppCardTagTextBlock"
                                             ToolTip.Tip="Add to Start"
                                             ToolTip.ShowDelay="0"
                                             Grid.Column="2"
-                                            Text="{Binding RunOnStartUp, Converter={StaticResource BoolToYesNoConverter}, StringFormat='AOS: {0}'}" />
+                                            Text="{Binding AddToStart, Converter={StaticResource BoolToYesNoConverter}, StringFormat='AOS: {0}'}" />
                                     </Grid>
                                     <Grid ColumnDefinitions="Auto,*">
                                         <TextBlock x:Name="Name"

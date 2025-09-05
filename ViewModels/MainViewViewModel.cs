@@ -21,6 +21,7 @@ public partial class MainViewViewModel : ViewModelBase
         foreach (var newApp in newApps)
         {
             Apps.Add(newApp);
+            Console.WriteLine("");
             Console.WriteLine(newApp.AppPath);
             Console.WriteLine(newApp.AppName);
             Console.WriteLine($"Run on Startup: {newApp.RunOnStartUp}");
